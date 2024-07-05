@@ -67,6 +67,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
         internal static readonly int DepthOfFieldTemp = Shader.PropertyToID("_DepthOfFieldTemp");
         internal static readonly int DepthOfFieldTex = Shader.PropertyToID("_DepthOfFieldTex");
+        internal static readonly int ResolutionCompensation = Shader.PropertyToID("_ResolutionCompensation");
         internal static readonly int Distance = Shader.PropertyToID("_Distance");
         internal static readonly int LensCoeff = Shader.PropertyToID("_LensCoeff");
         internal static readonly int MaxCoC = Shader.PropertyToID("_MaxCoC");

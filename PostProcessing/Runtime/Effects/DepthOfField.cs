@@ -186,6 +186,7 @@ namespace UnityEngine.Rendering.PostProcessing
             sheet.properties.SetFloat(ShaderIDs.MaxCoC, maxCoC);
             sheet.properties.SetFloat(ShaderIDs.RcpMaxCoC, 1f / maxCoC);
             sheet.properties.SetFloat(ShaderIDs.RcpAspect, 1f / aspect);
+            sheet.properties.SetFloat(ShaderIDs.ResolutionCompensation, context.height / 1080f);
 
             var cmd = context.command;
             cmd.BeginSample("DepthOfField");

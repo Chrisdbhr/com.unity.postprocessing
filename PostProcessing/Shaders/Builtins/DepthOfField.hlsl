@@ -18,6 +18,7 @@ float4 _DepthOfFieldTex_TexelSize;
 
 // Camera parameters
 float _Distance;
+float _ResolutionCompensation;
 float _LensCoeff;  // f^2 / (N * (S1 - f) * film_width * 2)
 float _MaxCoC;
 float _RcpMaxCoC;
@@ -161,7 +162,7 @@ half4 FragBlur(VaryingsDefault i) : SV_Target
         float2 disp = kDiskKernel[si] * _MaxCoC;
         float dist = length(disp);
 
-        float2 duv = float2(disp.x * _RcpAspect, disp.y);
+        float2 duv = float2(disp.x * _RcpAspect, disp.y) * _ResolutionCompensation;
         half4 samp = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, UnityStereoTransformScreenSpaceTex(i.texcoord + duv));
 
         // BG: Compare CoC of the current sample and the center sample
